@@ -234,6 +234,15 @@
             this._ResolvedUsers = newResolvedUsers;
             this.PeoplePickerData.val(JSON.stringify(this._ResolvedUsers));
         };
+        
+        // Clear/Resets People Picker Control
+        PeoplePicker.prototype.ClearPeoplePicker = function () {
+            this._ResolvedUsers = [];           
+            this.PeoplePickerData.val(JSON.stringify(this._ResolvedUsers));     
+            this.PeoplePickerControl.html(this.ResolvedUsersToHtml());
+            this.PeoplePickerEdit.show();
+            this.PeoplePickerEdit.focus();
+        };
 
         // Update the people picker control to show the newly added user
         PeoplePicker.prototype.RecipientSelected = function (login, name, email) {
